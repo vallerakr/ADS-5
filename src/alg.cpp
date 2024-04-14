@@ -23,7 +23,7 @@ std::string infx2pstfx(std::string inf) {
             num_str = num_str + x + ' ';
         } else {
             char zna = stack1.get();
-            if (pr == 0  (prior(zna) < pr && stack1.isEmpty())  x == ')') {
+            if (pr == 0 || prior(zna) < pr && stack1.isEmpty() || x == ')') {
                 if (x == ')') {
                     while (prior(zna) >= pr) {
                         num_str = num_str + zna + ' ';
