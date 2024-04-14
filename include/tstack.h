@@ -2,13 +2,16 @@
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
+#include <string>
+#include <stdexcept>
+
 template<typename T, int size>
 class TStack {
-private:
+ private:
     T* elements;
     int stackTop;
 
-public:
+ public:
     TStack() : stackTop(-1) {
         elements = new T[size];
     }
