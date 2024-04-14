@@ -23,7 +23,9 @@ std::string infx2pstfx(std::string inf) {
             num_str = num_str + x + ' ';
         } else {
             char znach = stack1.get();
-            if (pr == 0 || (prior(znach) < pr && stack1.isEmpty()) || x == ')') {
+            if (pr == 0 &&
+    (prior(znach) < pr && stack1.isEmpty()) &&
+    x == ')') {
                 if (x == ')') {
                     while (prior(znach) >= pr) {
                         num_str = num_str + znach + ' ';
