@@ -22,16 +22,14 @@ std::string infx2pstfx(std::string inf) {
         if (pr == -1) {
             num_str = num_str + x + ' ';
         } else {
-            char znach = stack1.get();
-            if (pr == 0 &&
-    (prior(znach) < pr && stack1.isEmpty()) &&
-    x == ')') {
+            char zna = stack1.get();
+            if (pr == 0  (prior(zna) < pr && stack1.isEmpty())  x == ')') {
                 if (x == ')') {
-                    while (prior(znach) >= pr) {
-                        num_str = num_str + znach + ' ';
+                    while (prior(zna) >= pr) {
+                        num_str = num_str + zna + ' ';
                         stack1.pop();
                         if (!stack1.isEmpty()) {
-                            znach = stack1.get();
+                            zna = stack1.get();
                         } else {
                             break;
                         }
@@ -41,12 +39,12 @@ std::string infx2pstfx(std::string inf) {
                     stack1.push(x);
                 }
             } else {
-                while (prior(znach) >= pr) {
-                    num_str = num_str + znach + ' ';
+                while (prior(zna) >= pr) {
+                    num_str = num_str + zna + ' ';
                     stack1.pop();
 
                     if (!stack1.isEmpty()) {
-                        znach = stack1.get();
+                        zna = stack1.get();
                     } else {
                         break;
                     }
