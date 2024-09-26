@@ -3,8 +3,43 @@
 #define INCLUDE_ALG_H_
 
 #include <string>
+#include <stdexcept>
 
-std::string infx2pstfx(std::string);
-int eval(std::string);
+template<typename T, int size>
+class TStack {
+ private:
+    T* elements;
+    int stackTop;
+
+ public:
+    TStack() : stackTop(-1) {
+        elements = new T[size];
+    }
+    ~TStack() {
+        delete[] elements;
+    }
+    void push(T value) {
+        if (!isFull()) {
+            elements[++stackTop] = value;
+        } else {
+            throw std::overflow_error("Stack is full");
+        }
+    }
+    T get() const {
+        return elements[stackTop];
+    }
+    T pop() {
+        if (isEmpty()) {
+            throw std::underflow_error("Stack is empty");
+        }
+        return elements[stackTop--];
+    }
+    bool isEmpty() const {
+        return stackTop == -1;
+    }
+    bool isFull() const {
+        return stackTop == size - 1;
+    }
+};
 
 #endif  // INCLUDE_ALG_H_
